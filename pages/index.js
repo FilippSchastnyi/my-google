@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image from 'next/image'
+import Avatar from "../components/Avatar/Avatar";
 
 export default function Home() {
   return (
@@ -10,13 +11,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico"/>
       </Head>
 
-      {/*header*/}
+      <header className="flex w-full p-5 justify-between text-sm text-gray-700">
+        <div className="flex space-x-4 items-center">
+          <p className="link">About</p>
+          <p className="link">Store</p>
+        </div>
+        <div className="flex space-x-4 items-center">
+          <p className="link">Gmail</p>
+          <p className="link">Images</p>
+
+          {/*Icon*/}
+
+          <Avatar url="https://i02.fotocdn.net/s126/ea543fdc0afcb043/gallery_xs/2872578917.jpg"/>
+        </div>
+      </header>
 
       {/*body*/}
 
       {/*footer*/}
-
-      <h1 className='p-10'>lets build google!</h1>
 
     </div>
   )
