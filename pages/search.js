@@ -1,6 +1,10 @@
 import Head from "next/head";
 import Header from "../components/Header/Header";
-const Search = () => {
+import {API_KEY, CONTEXT_KEY} from "../keys";
+import Response from "../Response"
+
+const Search = ({results}) => {
+  console.log(results)
   return (
     <div>
       <Head>
@@ -16,6 +20,17 @@ const Search = () => {
 export default Search;
 
 export async function getServerSideProps(context) {
-  const useDummyData = false;
-  
+  const useDummyData = true;
+  const startIndex = context.query.start || '0'
+
+  const data = useDummyData
+    ? Response
+    : await fetch(`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${context.query.term}`).then(response => response.json())
+
+
+  return {
+    props: {
+      results: data
+    }
+  }
 }
