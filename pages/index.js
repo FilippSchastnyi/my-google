@@ -5,9 +5,10 @@ import {MicrophoneIcon, ViewGridIcon} from "@heroicons/react/solid";
 import {SearchIcon} from "@heroicons/react/outline";
 import Footer from "../components/Footer/Footer";
 import {useRef} from "react";
-import {router} from "next/client";
+import {useRouter} from "next/router";
 
 export default function Home() {
+  const router = useRouter();
   const searchInputRef = useRef(null)
 
   const search = (e) => {

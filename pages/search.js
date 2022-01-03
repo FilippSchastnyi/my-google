@@ -8,10 +8,14 @@ const Search = () => {
       </Head>
 
       <Header/>
-      <h1>Search page</h1>
       {/*searchResult*/}
     </div>
   );
 };
 
 export default Search;
+
+export async function getServerSideProps(context) {
+  const useDummyData = false;
+  
+}
