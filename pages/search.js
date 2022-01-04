@@ -1,15 +1,13 @@
 import Head from "next/head";
 import Header from "../components/Header/Header";
-import {API_KEY, CONTEXT_KEY} from "../keys";
 import Response from "../Response"
 import {useRouter} from "next/router";
 import SearchResults from "../components/SearchResults/SearchResults";
+import {API_KEY, CONTEXT_KEY} from "../keys";
 
 function Search({ results }) {
 
-  console.log(results)
   const router = useRouter();
-
   return (
     <div>
       <Head>
@@ -22,10 +20,6 @@ function Search({ results }) {
 
       {/* Search Results */}
       <SearchResults results={results} />
-
-
-
-
     </div>
   )
 }
@@ -35,7 +29,7 @@ export default Search;
 export async function getServerSideProps(context) {
   const useDummy = false;
 
-  const startPagination = context.query.start
+  const startPagination = context.query.start || '0'
 
   const data = useDummy
     ? Response
